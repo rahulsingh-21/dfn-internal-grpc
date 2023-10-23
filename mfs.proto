@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package mfs;
+
+option go_package = "https://github.com/rahulsingh-21/dfn-internal-grpc/mfs;mfs";
+
+message UploadRequest {
+  string bank = 1;
+  string file_path = 2;
+  string date = 3;
+}
+
+message UploadResponse {
+  string status = 1;
+}
+
+message RetrieveRequest {
+  string bank = 1;
+  string file_path = 2;
+  string date = 3;
+}
+
+message RetrieveResponse {
+  string status = 1;
+}
+
+message UploadPathRequest {
+  string bank = 1;
+  string file_path = 2;
+  string date = 3;
+}
+
+message UploadPathResponse {
+  string status = 1;
+}
+
+message RetrievePathRequest {
+  string bank = 1;
+  string file_path = 2;
+  string date = 3;
+}
+
+message RetrievePathResponse {
+  string status = 1;
+}
+
+service MfsService {
+  rpc UploadFile (UploadRequest) returns (UploadResponse);
+  rpc RetrieveFile (RetrieveRequest) returns (RetrieveResponse);
+  rpc UploadFilePath (UploadPathRequest) returns (UploadPathResponse);
+  rpc RetrievePathFile (RetrievePathRequest) returns (RetrievePathResponse);
+}
+
